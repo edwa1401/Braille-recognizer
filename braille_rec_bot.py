@@ -4,7 +4,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 import settings
 
-logging.basicConfig(filename='bot.log', level=logging.INFO, format="%(levelname)s:%(asctime)s - %(message)s")
+logging.basicConfig(filename='braille_rec_bot.log', level=logging.INFO, format="%(levelname)s:%(asctime)s - %(message)s")
 
 
 def greet_user(update, context):
