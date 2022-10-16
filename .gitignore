@@ -130,3 +130,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .DS_Store
+opencv-python-4.5.3.56
+opencv.tar.gz
+webapp.db
