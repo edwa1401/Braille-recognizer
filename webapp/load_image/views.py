@@ -1,0 +1,20 @@
+from flask import Blueprint, current_app, flash, render_template
+import os
+
+from webapp.load_image.forms import UploadForm
+from webapp.utils import create_filename
+
+blueprint = Blueprint("upload", __name__)
+
+
+@blueprint.route("/", methods=["GET", "POST"])
+def index():
+    title = "Braille Recognizer"
+    upload_form = UploadForm()
+    if upload_form.validate_on_submit():
+        f = upload_form.image.data
+        filename = create_filename()
+        f.save(os.path.join(current_app.config["UPLOAD_FOLDER"], filename))
+        flash("Фотография успешно отправлена")
+        return render_template("load_image/index.html", page_title=title, form=upload_form)
+    return render_template("load_image/index.html", page_title=title, form=upload_form)

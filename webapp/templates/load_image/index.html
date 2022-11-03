@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ page_title }}</h1>
+    <p style="color:#4E4E4E">Прикрепите Вашу фотографию шрифта Брайля в форму ниже</p>
+        {% include("messages.html") %}
+        {% if form.image.errors %}
+            <div class="alert alert-warning" role="alert">
+                {% for error in form.image.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+        <form action="/" method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="input-group">
+                {{ form.image() }}
+                {{ form.submit() }}
+            </div>
+        </form>
+{% endblock %}
