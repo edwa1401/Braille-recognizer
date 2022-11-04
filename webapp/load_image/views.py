@@ -12,6 +12,8 @@ blueprint = Blueprint("upload", __name__)
 def index():
     title = "Braille Recognizer"
     upload_form = UploadForm()
+    url_photo = os.path.join(current_app.config["UPLOAD_FOLDER"], "photo.jpg")
+    translation_text = "Текст перевода"
     if upload_form.validate_on_submit():
         f = upload_form.image.data
         filename = create_filename()
@@ -19,5 +21,8 @@ def index():
         upload_time = datetime.now()
         save_upload_info(filename, current_app.config["UPLOAD_FOLDER"], upload_time)
         flash("Фотография успешно отправлена")
-        return render_template("load_image/index.html", page_title=title, form=upload_form)
-    return render_template("load_image/index.html", page_title=title, form=upload_form)
+
+        return render_template("load_image/index.html", page_title=title, form=upload_form,
+                               url_photo=url_photo, card_text=translation_text)
+    return render_template("load_image/index.html", page_title=title, form=upload_form,
+                           url_photo=url_photo, card_text=translation_text)

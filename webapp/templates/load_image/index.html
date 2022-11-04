@@ -1,21 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{ page_title }}</h1>
+<h1 xmlns:padding="http://www.w3.org/1999/xhtml">{{ page_title }}</h1>
     <p style="color:#4E4E4E">Прикрепите Вашу фотографию шрифта Брайля в форму ниже</p>
-        {% include("messages.html") %}
-        {% if form.image.errors %}
-            <div class="alert alert-warning" role="alert">
-                {% for error in form.image.errors %}
-                    {{ error }}
-                {% endfor %}
-            </div>
-        {% endif %}
-        <form action="/" method="POST" enctype="multipart/form-data">
-            {{ form.hidden_tag() }}
-            <div class="input-group">
-                {{ form.image() }}
-                {{ form.submit() }}
-            </div>
-        </form>
+    {% include("messages.html") %}
+    {% if form.image.errors %}
+        <div class="alert alert-warning" role="alert">
+            {% for error in form.image.errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <form action="/" method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="input-group">
+            {{ form.image() }}
+            {{ form.submit() }}
+        </div>
+    </form>
+    <p></p>
+    <div class="card" style="width: 30rem;">
+        <img src="{{ url_photo }}" class="card-img-top" alt="Здесь должна быть фотография">
+        <div class="card-body">
+            <h5 class="card-title">Перевод шрифта Брайля</h5>
+            <p class="card-text">{{ card_text }}</p>
+        </div>
+    </div>
 {% endblock %}
