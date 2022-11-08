@@ -1,4 +1,5 @@
 webapp.db
+.pkl
 settings.py
 .idea/
 settings.py
