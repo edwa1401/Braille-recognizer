@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_migrate import Migrate
 
 from webapp.db import db
@@ -11,6 +11,16 @@ def create_app():
     app.config.from_pyfile("config.py")
     db.init_app(app)
     migrate = Migrate(app, db)
+
+    @app.get('/media/<path:path>')
+    def send_media(path):
+        """
+        :param path: a path like "posts/<int:post_id>/<filename>"
+        """
+
+        return send_from_directory(
+            directory="../downloads/", path=path
+        )
 
     app.register_blueprint(feedback_blueprint)
     app.register_blueprint(load_image_blueprint)
