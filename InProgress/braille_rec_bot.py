@@ -13,9 +13,9 @@ def greet_user(update, context):
 
 def check_user_photo(update, context):
     update.message.reply_text("Обрабатываем фото")
-    os.makedirs("downloads", exist_ok=True)
+    os.makedirs("../downloads", exist_ok=True)
     photo_file = context.bot.getFile(update.message.photo[-1].file_id)
-    filename = os.path.join("downloads", f"{photo_file.file_id}.jpg")
+    filename = os.path.join("../downloads", f"{photo_file.file_id}.jpg")
     photo_file.download(filename)
     update.message.reply_text("Файл сохранён")
 

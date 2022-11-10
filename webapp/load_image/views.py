@@ -26,7 +26,7 @@ def index():
         url_photo = f"/media/{url_photo}"
         flash("Фотография успешно отправлена")
         if translation_text == "":
-            translation_text = "Извините"
+            translation_text = "К сожаления, на фотографии не удалось распознать шрифт Брайля."
 
     return render_template("load_image/index.html", page_title=title, form=upload_form,
                            url_photo=url_photo, card_text=translation_text)
