@@ -35,7 +35,7 @@ pip install -r requirements.txt
 chmod +x run.sh
 ./run.sh
 ```
-* Для Windows: создайте файл `run.but` в корне проекта, в который добавьте 
+* Для Windows: создайте файл `run.bat` в корне проекта, в который добавьте 
 `set FLASK_APP=webapp && set FLASK_ENV=development && set FLASK_DEBUG=1
             && flask run`
 ```
