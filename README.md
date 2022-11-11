@@ -5,7 +5,18 @@ Braille recognizer является web-приложением по распоз
 Пользователь может загрузить фотографию в формате jpg или
 jpeg и получить перевод, нанесённый на фотографию, и в виде текста.
 
+Подробней о шрифте Брайля:
+https://ru.wikipedia.org/wiki/Шрифт_Брайля
+
+## Источники
+При разработке проекта использован 
+Angelina Braille Images Dataset
+
+https://github.com/IlyaOvodov/AngelinaDataset
+
+
 ![Иллюстрация к проекту](https://github.com/edwa1401/Braille-recognizer/raw/main/cover_image.png)
+
 
 ## Установка
 
