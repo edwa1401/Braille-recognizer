@@ -1,8 +1,8 @@
-from datetime import datetime
-from werkzeug.utils import secure_filename
 import cv2
+from datetime import datetime
 import numpy as np
 import pickle
+from werkzeug.utils import secure_filename
 
 from webapp.db import db
 from webapp.load_image.models import Photo
@@ -36,7 +36,6 @@ def match_templates(image):
 
     for key, value in dict_of_templates.items():
         template = value
-        # for template in value:
         w, h = template.shape[::-1]
 
         result = cv2.matchTemplate(test_img, template, cv2.TM_CCOEFF_NORMED)
@@ -55,7 +54,6 @@ def match_templates(image):
             else:
                 dict_line[y].append(x)
 
-    # dict(sorted(dict_line.items(), key=lambda item: len(item[1])))
     # create dictionary with lines' length 3 or more characters, and x coordinates ascending
     new_dict_line = {}
 
